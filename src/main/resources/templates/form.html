@@ -5,68 +5,61 @@
 <title th:text="${titulo}"></title>
 </head>
 <body>
-    <h3 th:text="${titulo}"></h3>
+	<h3 th:text="${titulo}"></h3>
 
 	<form th:action="@{/agregar}" th:object="${usuario}" method="post">
-			
+	<div class="form-group">
+
 		<div>
-			<label for="nombre">Nombre</label>
+			<label for="identificador">Codigo de producto Universal</label>
+			<div>
+				<input type="number" id="identificador" th:field="*{identificador}">
+			</div>
+			<div th:if="${#fields.hasErrors('identificador')}"
+				th:errors="*{identificador}"></div>
+		</div>
+		<div>
+			<label for="nombre">Nombre producto</label>
 			<div>
 				<input type="text" id="nombre" th:field="*{nombre}">
 			</div>
 			<div th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
 		</div>
 		<div>
-			<label for="apellido">Apellido</label>
+			<label for="marca">Marca</label>
 			<div>
-				<input type="text" id="apellido" th:field="*{apellido}">
+				<input type="text" id="marca" th:field="*{marca}">
 			</div>
-			<div th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></div>
+			<div th:if="${#fields.hasErrors('marca')}" th:errors="*{marca}"></div>
 		</div>
 		<div>
-			<label for="username">fecha de nacimiento</label>
+			<label for="descrpcion">Descripcion</label>
 			<div>
-				<input type="date" id="username" th:field="*{username}">
+				<input type="text" id="descrpcion" th:field="*{descrpcion}">
 			</div>
-			<div th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+			<div th:if="${#fields.hasErrors('descrpcion')}"
+				th:errors="*{descrpcion}"></div>
 		</div>
 		<div>
-			<label for="password">Lugar de nacimiento</label>
+			<label for="existencia">Existencias</label>
 			<div>
-				<input type="text" th:field="*{password}" id="password">
+				<input type="number" id="existencia" th:field="*{existencia}">
 			</div>
-			<div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+			<div th:if="${#fields.hasErrors('existencia')}" th:errors="*{existencia}"></div>
 		</div>
 		<div>
-			<label for="email">Instituto o colegio de procedencia</label>
+			<label for="fecha">fecha de ingreso</label>
 			<div>
-				<input type="text" id="email" th:field="*{email}">
+				<input type="date" id="fecha" th:field="*{fecha}">
 			</div>
-			<div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+			<div th:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}"></div>
 		</div>
+
 		<div>
-			<label for="identificador">telefono fijo</label>
-			<div>
-				<input type="text" id="identificador" th:field="*{identificador}">
-			</div>
-			<div th:if="${#fields.hasErrors('identificador')}" th:errors="*{identificador}"></div>
+			<input type="submit" value="Enviar">
 		</div>
 		
-		<div>
-			<label for="movil">telefono movil</label>
-			<div>
-				<input type="text" id="movil" th:field="*{movil}">
-			</div>
-			<div th:if="${#fields.hasErrors('movil')}" th:errors="*{movil}"></div>
-		</div>
-		
-		
-		<div>
-			<div>
-				<input type="submit" value="Enviar">
-			</div>
-		</div>	
-		
+</div>
 	</form>
 </body>
 </html>

@@ -14,19 +14,13 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.uca.capas.form.app.models.domain.Usuario;
-import com.uca.capas.form.app.validation.UsuarioValidador;
+//import com.uca.capas.form.app.validation.UsuarioValidador;
 
 @Controller
 @SessionAttributes("usuario")
 public class FormController {
 	
-	@Autowired
-	private UsuarioValidador validador;
-	
-	@InitBinder
-	public void initBinder(WebDataBinder binder) {
-		binder.addValidators(validador);
-	}
+
 	
 	@GetMapping("/agregar")
 	public String form(Model model) {
